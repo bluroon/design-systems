@@ -1,0 +1,235 @@
+section
+{
+  margin-bottom: 4rem;
+}
+
+//COLORS
+$primary: #ff3300;
+$primary-hover: #660000;
+
+$secondary: #9900cc;
+$secondary-hover: #330066;
+
+$white: #ffffff;
+$midtone-warm: #cccc99;
+$midtone-cold: #ffcc99;
+$shadow: rgba(0, 0, 102, 1);
+$grey: #666666;
+
+
+//GRID
+@mixin grid-initiation($col, $row)
+{
+  display: grid;
+  grid-template-columns:repeat($col, 1fr);
+  grid-auto-rows: minmax($row, auto);
+}
+
+div
+{
+  margin-bottom: 2rem;
+}
+.grid
+{
+  .col
+  {
+    width: 100%;
+    height: 100%;
+    background: $grey;
+  }
+  
+  .col:nth-child(odd)
+  {
+    background: $shadow;
+  }  
+}
+.desktop-grid
+{
+  @include grid-initiation(12, 64px);
+
+}
+
+.tablet-grid
+{
+  @include grid-initiation(12, 64px);
+  width: 1024px;
+}
+
+.mobile-grid
+{
+  @include grid-initiation(12, 64px);
+  width: 414px;
+}
+
+//TYPESETTING
+$typeface: Georgia;
+h1, .h1 { font-size: 8rem; }
+h2, .h2 { font-size: 6rem; }
+h3, .h3 { font-size: 4rem; }
+
+p, body, .body { font-size: 1rem; }
+.caption { font-size: 0.5rem; }
+
+//BUTTONS
+button
+{
+  border-radius: 0.5rem;
+}
+
+@mixin btn-primary
+{
+  background: $primary;
+  border: none;
+  font-size: 2rem;
+  padding: 1rem;
+}
+
+@mixin btn-primary-hover
+{
+  background: $primary-hover;
+  color: $white;
+}
+
+
+@mixin btn-secondary
+{
+  background: $secondary;
+  border: none;
+  font-size: 2rem;
+  padding: 1rem;
+}
+
+@mixin btn-secondary-hover
+{
+  background: $secondary-hover;
+  color: $white;
+}
+
+@mixin btn-tertiary
+{
+  background: none;
+  border: 1px solid $shadow;
+  font-size: 2rem;
+  padding: 1rem;
+}
+
+@mixin btn-tertiary-hover
+{
+  background: $secondary-hover;
+  color: $white;
+}
+
+
+.title
+{
+  color: $shadow;
+  margin-bottom: 1rem;
+  color: $grey;
+}
+
+hr
+{
+  margin-bottom: 2rem;
+}
+
+body
+{
+  background: $white;
+  color: $shadow;
+  padding: 2rem;
+  font-family: $typeface;
+}
+
+button.btn-primary
+{
+  @include btn-primary;
+}
+
+button.btn-primary:hover
+{
+  @include btn-primary-hover;
+}
+
+button.btn-secondary
+{
+  @include btn-secondary;
+}
+
+button.btn-secondary:hover
+{
+  @include btn-secondary-hover;
+}
+
+button.btn-tertiary
+{
+  @include btn-tertiary;
+}
+
+//SHADOWS
+@mixin shadow-1
+{
+  box-shadow: 10px 20px 20px rgba(0, 0, 102, 0.5);
+}
+
+@mixin shadow-2
+{
+  box-shadow: 5px 10px 20px rgba(0, 0, 102, 0.2);
+}
+
+
+.shadow-1
+{
+  @include shadow-1;
+  padding: 2rem;
+  margin-bottom: 2rem;   
+}
+
+.shadow-2
+{
+  @include shadow-2;
+  padding: 2rem;    
+}  
+
+//SHADOWS
+@mixin buttons
+{
+  height: 4rem;
+  width: auto;
+  border-radius: 0.5rem;  
+  padding-left: 1rem;
+  font-size: 1rem;
+}
+
+@mixin txt-normal
+{
+  border: 1px solid $grey;
+}
+
+@mixin txt-active
+{
+  border: 1px solid $primary;
+}
+
+@mixin txt-inactive
+{
+  border: 1px solid $shadow;
+}
+
+.txt-normal
+{
+  @include txt-normal;
+  @include buttons;
+}
+
+.txt-active
+{
+  @include txt-active;
+  @include buttons;
+}
+
+.txt-inactive
+{
+  @include txt-inactive;
+  @include buttons;
+}  
+
