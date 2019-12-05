@@ -216,6 +216,11 @@ button.btn-tertiary
   border: 1px solid $shadow;
 }
 
+input
+{
+  width: 100%;
+}
+
 .txt-normal
 {
   @include txt-normal;
